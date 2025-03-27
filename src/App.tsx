@@ -22,13 +22,11 @@ export const App: React.FC = () => {
         return data.filter(todo => {
           if (filter === 'all') {
             return todo;
-          }
-
-          if (filter === 'active') {
+          } else if (filter === 'active') {
             return !todo.completed;
+          } else {
+            return todo.completed;
           }
-
-          return todo.completed;
         });
       })
       .then(data => {
@@ -41,7 +39,7 @@ export const App: React.FC = () => {
 
   return (
     <>
-      <div className="section has-background-black">
+      <div className="section">
         <div className="container">
           <div className="box">
             <h1 className="title">Todos:</h1>
